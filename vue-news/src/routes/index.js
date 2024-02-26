@@ -8,7 +8,12 @@ import JobsView from '../views/JobsView.vue';
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
+  mode: 'history',   //url에 hash값 제거됨
   routes: [
+    {
+      path: '/',
+      redirect: '/news',
+    },
     {
       // path: url주소
       path: '/news',
