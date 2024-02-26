@@ -3,11 +3,11 @@ import VueRouter from 'vue-router';
 
 import NewsView from '../views/NewsView.vue';
 import AskView from '../views/AskView.vue';
-import JabsView from '../views/JabsView.vue';
+import JobsView from '../views/JobsView.vue';
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
+export const router = new VueRouter({
   routes: [
     {
       // path: url주소
@@ -21,9 +21,7 @@ const router = new VueRouter({
     },
     {
       path: '/jobs',
-      component: JabsView,
+      component: JobsView,
     },
   ]
 })
-
-export { router }
