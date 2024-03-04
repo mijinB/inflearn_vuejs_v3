@@ -9,9 +9,9 @@ import { mapGetters } from 'vuex';
 export default {
     computed: {
         // 3.
-        ...mapGetters({
-            fetchedAsks: 'fetchedAsks'
-        })
+        ...mapGetters([
+            'fetchedAsks'
+        ])
 
         // 2.
         // ...mapState({
