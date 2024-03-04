@@ -30,7 +30,7 @@ export const router = new VueRouter({
       component: JobsView,
     },
     {
-      path: '/user',
+      path: '/user/:id',   //동적 라우팅
       component: UserView,
     }
   ]
