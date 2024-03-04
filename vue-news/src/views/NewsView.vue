@@ -14,10 +14,7 @@ export default {
     },
     created() {
         fetchNewsList()
-            .then(response => {
-                console.log(response);
-                this.users = response.data;
-            })
+            .then(response => this.users = response.data)
             .catch(error => console.log(error));
     },
 };
