@@ -1,16 +1,24 @@
 <template>
     <div>
-        <div v-for="ask in asks" v-bind:key="ask.id">{{ ask.title }}</div>
+        <div v-for="ask in fetchedAsks" v-bind:key="ask.id">{{ ask.title }}</div>
     </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     computed: {
-        ...mapState({
-            asks: state => state.asks
+        // 3.
+        ...mapGetters({
+            fetchedAsks: 'fetchedAsks'
         })
+
+        // 2.
+        // ...mapState({
+        //     asks: state => state.asks
+        // })
+
+        // 1.
         // asks() {
         //     return this.$store.state.ask;
         // }
