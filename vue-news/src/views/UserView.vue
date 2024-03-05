@@ -2,8 +2,8 @@
   <div>
     <UserProfile :info="userInfo">
       <div slot="username">{{ userInfo.id }}</div>
-      <template slot="time">{{ userInfo.created }}</template>
-      <div slot="karma">{{ userInfo.karma }}</div>
+      <span slot="time">{{ 'Joined ' + userInfo.created }}, </span>
+      <span slot="karma">{{ 'Posted' + userInfo.karma }}</span>
     </UserProfile>
   </div>
 </template>
@@ -16,10 +16,10 @@ export default {
     UserProfile,
   },
   computed: {
-        userInfo() {
-            return this.$store.state.user;
-        }
-    },
+    userInfo() {
+        return this.$store.state.user;
+    }
+  },
   created() {
     const userName = this.$route.params.id;
     this.$store.dispatch('FETCH_USER', userName);

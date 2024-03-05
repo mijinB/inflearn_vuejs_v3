@@ -3,7 +3,7 @@
     <section>
       <!-- 사용자 정보 -->
       <UserProfile :info="fetchedItem">
-        <div slot="username">{{ fetchedItem.user }}</div>
+        <router-link slot="username" :to="`/user/${fetchedItem.user}`">{{ fetchedItem.user }}</router-link>
         <template slot="time">{{ fetchedItem.time_ago }}</template>
       </UserProfile>
     </section>
