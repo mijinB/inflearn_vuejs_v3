@@ -1,10 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-// import createListView from '@/views/CreateListView';
-import NewsView from '../views/NewsView.vue';
-import AsksView from '../views/AsksView.vue';
-import JobsView from '../views/JobsView.vue';
+import createListView from '@/views/CreateListView';
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
 
@@ -22,20 +19,17 @@ export const router = new VueRouter({
       path: '/news',
       name: 'news',
       //component: url 주소로 갔을 때 표시될 컴포넌트
-      component: NewsView,
-      // component: createListView('NewsView'),
+      component: createListView('NewsView'),
     },
     {
       path: '/ask',
       name: 'ask',
-      component: AsksView,
-      // component: createListView('AsksView'),
+      component: createListView('AsksView'),
     },
     {
       path: '/jobs',
       name: 'jobs',
-      component: JobsView,
-      // component: createListView('JobsView'),
+      component: createListView('JobsView'),
     },
     {
       path: '/user/:id',   //동적 라우팅
