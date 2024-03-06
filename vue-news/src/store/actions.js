@@ -12,13 +12,9 @@ export default {
     }, */
     // async
     async FETCH_LIST({ commit }, pageName) {
-        try {
-            const response = await fetchList(pageName);
-            commit('SET_LIST', response.data);
-            return response;
-        } catch(error) {
-            console.log(error);
-        }
+        const response = await fetchList(pageName);
+        commit('SET_LIST', response.data);
+        return response;
     },
 
     FETCH_USER({ commit }, name) {
