@@ -1,14 +1,22 @@
 import { fetchList, fetchUserInfo, fetchCommentItem } from '@/api';
 
 export default {
-    FETCH_LIST({ commit }, pageName) {
+    // promise
+    /* FETCH_LIST({ commit }, pageName) {
         return fetchList(pageName)
             .then(response => {
                 commit('SET_LIST', response.data);
                 return response;
             })
             .catch(error => console.log(error));
+    }, */
+    // async
+    async FETCH_LIST({ commit }, pageName) {
+        const response = await fetchList(pageName);
+        commit('SET_LIST', response.data);
+        return response;
     },
+
     FETCH_USER({ commit }, name) {
         return fetchUserInfo(name)
             .then(({ data }) => {
