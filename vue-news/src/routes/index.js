@@ -4,8 +4,6 @@ import VueRouter from 'vue-router';
 import createListView from '@/views/CreateListView';
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
-import bus from '../utils/bus';
-import { store } from '../store/index'
 
 Vue.use(VueRouter);
 
@@ -20,21 +18,8 @@ export const router = new VueRouter({
       // path: url주소
       path: '/news',
       name: 'news',
+      //component: url 주소로 갔을 때 표시될 컴포넌트
       component: createListView('NewsView'),
-      beforeEnter: (to, from, next) => {
-        // #1
-        bus.$emit('start:spinner');
-        store.dispatch('FETCH_LIST', to.name)
-            .then(() => {
-                console.log('fetched');
-                bus.$emit('end:spinner');
-                next();
-            })
-            .catch(error => console.log(error));
-        // console.log('to', to);   이동할 url의 라우팅 정보(news)
-        // console.log('from', from);   현재 url의 라우팅 정보(asks에서 news로 이동했을 시, asks)
-        // console.log('next', next);   function(beforeEnter라는 것은 next를 호출해줘야만 라우트 이동이 된다. next 호출을 안 하면 메뉴 클릭해도 이동x)
-      }
     },
     {
       path: '/ask',
