@@ -3,12 +3,9 @@
 </template>
 
 <script>
-import { Chart, registerables } from 'chart.js'
-Chart.register(...registerables)
-
 export default {
     mounted() {
-        new Chart(this.$refs.lineChart.getContext('2d'), {
+        new this.$_Chart(this.$refs.lineChart.getContext('2d'), {
             type: 'line',
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],

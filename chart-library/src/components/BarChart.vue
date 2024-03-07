@@ -3,12 +3,9 @@
 </template>
 
 <script>
-import { Chart, registerables } from 'chart.js'
-Chart.register(...registerables)
-
 export default {
     mounted() {
-		new Chart(this.$refs.barChart, {
+		new this.$_Chart(this.$refs.barChart, {
 			type: 'bar',
 			data: {
 				labels: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
