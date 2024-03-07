@@ -1,5 +1,5 @@
 <template>
-  <canvas id="lineChart"></canvas>
+  <canvas ref="lineChart"></canvas>
 </template>
 
 <script>
@@ -8,8 +8,7 @@ Chart.register(...registerables)
 
 export default {
     mounted() {
-        var ctx = document.getElementById('lineChart').getContext('2d');
-        new Chart(ctx, {
+        new Chart(this.$refs.lineChart.getContext('2d'), {
             type: 'line',
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
